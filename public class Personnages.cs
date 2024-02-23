@@ -9,5 +9,13 @@ public class Personnages
         this.degats = degats2;
         this.nombre_pv = nombre_pv2;
     }
+    public static Personnages
+    {
+        joueur.zone(Lieu);
+    }
+    public static Personnages
+    {
+        joueur.fouille(Zone);
+    }
     
 }
