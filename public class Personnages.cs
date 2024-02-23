@@ -11,6 +11,6 @@ public class Personnages
     }
     public static Personnages
     {
-        Personnages.ennemies(Lieu); 
+        Personnages.combats(ennemies); 
     }
 }
