@@ -1,4 +1,4 @@
-public class ennemies 
+public class ennemies : Personnages
 {
 
 }

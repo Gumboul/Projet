@@ -1,4 +1,4 @@
-public class Orc 
+public class Orc : ennemies
 {
     private string nom
     public static (string Orc)

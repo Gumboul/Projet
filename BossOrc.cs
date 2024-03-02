@@ -1,4 +1,4 @@
-public class BossOrc 
+public class BossOrc : Orc
 {
     private string nom
     public static (string BossOrc)

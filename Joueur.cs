@@ -1,8 +1,8 @@
-public class Joueurs
+public class Joueurs : Personnages
 {
     Items[] = new Items[100];
     
-    public static Personnages
+    public static Personnages 
     {
         joueur.zone(Lieu); 
     }
