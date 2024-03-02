@@ -1,4 +1,4 @@
-public class Armes   //Creation classe Armes
+public class Armes : Items   //Creation classe Armes
 {
     private int degat ;
 

@@ -1,4 +1,4 @@
-public class Armure  //Creation classe Armure
+public class Armure : Items //Creation classe Armure
 {
     private int protection ;
 

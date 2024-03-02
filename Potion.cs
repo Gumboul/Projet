@@ -1,4 +1,4 @@
-public class Potion   //Creation classe Potion
+public class Potion : Items  //Creation classe Potion
 {
     private int valeur ;
 
