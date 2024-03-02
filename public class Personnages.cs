@@ -11,6 +11,9 @@ public class Personnages
     }
     public static Personnages
     {
-        Personnages.combats(ennemies); 
+        Personnages.combats(ennemies)
+        {
+            
+        } 
     }
 }

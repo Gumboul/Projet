@@ -4,10 +4,16 @@ public class Joueurs : Personnages
     
     public static Personnages 
     {
-        joueur.zone(Lieu); 
+        joueur.zone(Lieu)
+        {
+
+        } 
     }
     public static Personnages
     {
-        joueur.fouille(Zone);
+        joueur.fouille(Zone)
+        {
+            
+        }
     }
 }
