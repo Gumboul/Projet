@@ -1,4 +1,4 @@
-public class Personnages : Projet
+public class Personnages : Main
 {
     private string lieu 
     private int degat

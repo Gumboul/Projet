@@ -47,7 +47,7 @@ public class Force : Potion     //Creation classe Soin
     {
         Force.augmenter(ajout)
         {
-            Personnages.nombre_pv = Personnages.nombre_pv + Force;
+            Personnages.degat = Personnages.degat + Force;
         }
     }
 }
