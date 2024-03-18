@@ -9,9 +9,9 @@ public class Personnages : Main
         this.degats = degats2;
         this.nombre_pv = nombre_pv2;
     }
-    public static Personnages
+    public static combats
     {
-        Personnages.combats(ennemies)
+        personnages.ennemies
         {
             
         } 
