@@ -1,8 +1,8 @@
 public class Joueurs : Personnages
 {
-    public List<string> Items = new List<string>();
+    public List<Items> items = new List<Items>();
     
-    public Joueurs(string lieu2, int degats2, int nombre_pv2, string nom_joueur2) : base(lieu2, degats2, nombre_pv2, nom_joueur2)
+    public Joueurs(string lieu2, int degats2, int nombre_pv2, string nom_joueur2, string joueur_prenom2) : base(lieu2, degats2, nombre_pv2, nom_joueur2, joueur_prenom2)
     {
     }
 
@@ -21,6 +21,10 @@ public class Joueurs : Personnages
         get { return nombre_pv; }
         set { nombre_pv = value; }
     }
+	public void additem(Items weapon)
+	{
+	this.items.Add(weapon);
+	}
 
     public static Personnages 
     {

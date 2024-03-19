@@ -19,6 +19,29 @@ public class Projet
 		Console.WriteLine("Vous avez choisi comme prénom : " + instancej.Joueurprenom);
 		
 		
+		//Choix de la classe et Création Arme
+		
+		Console.WriteLine("Vueillez choisir entre ces 3 classes : Chevalier, Barbare, Archer");
+		string Possede = (".");
+		string Choix = Console.ReadLine();
+		if (Choix == "Barbare") {
+				instancej.additem(new Armes(40,"Hache"));
+				Possede = ("Hache");
+		}
+		if (Choix == "Chevalier") {
+				instancej.additem(new Armes(20,"epee"));
+				Possede = ("Epée");
+		}
+		if (Choix == "Archer") {
+				instancej.additem(new Armes(15,"Arc"));
+				Possede = ("Arc");
+		}
+		
+
+		
+		
+		
+		
 		//L'affichage des informations
 		
 		Console.WriteLine("*********************************************");
@@ -26,6 +49,8 @@ public class Projet
 		Console.WriteLine("* Votre Nom : " + instancej.NomJoueur);
 		Console.WriteLine("* Votre Prénom : " + instancej.Joueurprenom);
 		Console.WriteLine("* Vos point de vie sont : " + instancej.Nombrevie);
+		Console.WriteLine("* Votre classe est : " + Choix);
+		Console.WriteLine("* Votre arme est : " + Possede);
 	
 	}
 }
@@ -50,7 +75,7 @@ public class Personnages
 
 public class Joueurs : Personnages
 {
-    public List<string> Items = new List<string>();
+    public List<Items> items = new List<Items>();
     
     public Joueurs(string lieu2, int degats2, int nombre_pv2, string nom_joueur2, string joueur_prenom2) : base(lieu2, degats2, nombre_pv2, nom_joueur2, joueur_prenom2)
     {
@@ -71,4 +96,34 @@ public class Joueurs : Personnages
         get { return nombre_pv; }
         set { nombre_pv = value; }
     }
+	public void additem(Items weapon)
+	{
+	this.items.Add(weapon);
+	}
+}
+
+public class Armes : Items   //Creation classe Armes
+{
+    private int degat ;
+	
+	private string nom;
+    
+    public Armes(int degat2, string nom)
+    {
+        this.degat = degat2;
+		this.nom = nom;
+    }
+    public void setDegat(int degat3)
+    {
+        this.degat = degat3;
+    }
+    public double getDegat()
+    {
+        return this.degat;
+    }
+}
+
+public class Items
+{
+
 }

@@ -16,6 +16,29 @@ public class Projet
 		Console.WriteLine("Vous avez choisi comme prénom : " + instancej.Joueurprenom);
 		
 		
+		//Choix de la classe et Création Arme
+		
+		Console.WriteLine("Vueillez choisir entre ces 3 classes : Chevalier, Barbare, Archer");
+		string Possede = (".");
+		string Choix = Console.ReadLine();
+		if (Choix == "Barbare") {
+				instancej.additem(new Armes(40,"Hache"));
+				Possede = ("Hache");
+		}
+		if (Choix == "Chevalier") {
+				instancej.additem(new Armes(20,"epee"));
+				Possede = ("Epée");
+		}
+		if (Choix == "Archer") {
+				instancej.additem(new Armes(15,"Arc"));
+				Possede = ("Arc");
+		}
+		
+
+		
+		
+		
+		
 		//L'affichage des informations
 		
 		Console.WriteLine("*********************************************");
@@ -23,5 +46,7 @@ public class Projet
 		Console.WriteLine("* Votre Nom : " + instancej.NomJoueur);
 		Console.WriteLine("* Votre Prénom : " + instancej.Joueurprenom);
 		Console.WriteLine("* Vos point de vie sont : " + instancej.Nombrevie);
+		Console.WriteLine("* Votre classe est : " + Choix);
+		Console.WriteLine("* Votre arme est : " + Possede);
 	}
 }

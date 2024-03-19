@@ -1,11 +1,13 @@
 public class Armes : Items   //Creation classe Armes
 {
     private int degat ;
-
+	
+	private string nom;
     
-    public Armes(int degat2)
+    public Armes(int degat2, string nom)
     {
         this.degat = degat2;
+		this.nom = nom;
     }
     public void setDegat(int degat3)
     {
@@ -14,21 +16,5 @@ public class Armes : Items   //Creation classe Armes
     public double getDegat()
     {
         return this.degat;
-    }
-}
-
-public class Epee:Armes   //Creation classe Epee 
-{
-    public Epee():base(20)
-    {
-        
-    }
-}
-
-public class Masse:Armes     //Creation classe Masse
-{
-    public Masse():base(40)
-    {
-        
     }
 }
