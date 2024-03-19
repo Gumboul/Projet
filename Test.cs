@@ -51,6 +51,15 @@ public class Projet
 		Console.WriteLine("* Vos point de vie sont : " + instancej.Nombrevie);
 		Console.WriteLine("* Votre classe est : " + Choix);
 		Console.WriteLine("* Votre arme est : " + Possede);
+
+    //Pour le combats faire un readline ou il entrera attaque, et à chaque tour l'ennemie lui infligera un nombre de dégats définis jusqu'a ce que soit 
+	//il meurt ou que l'ennemie meurt
+		
+	//Combats 
+		Console.WriteLine("Vous êtes à la recherche d'une couronne mystique depuis plusieurs année.");
+		Console.WriteLine("Au périle de votre vie vous avez encouru de grand danger, reçu une multitude d'information");
+		Console.WriteLine("Vous finissez par recevoir l'information qu'un Orc détiendrait cette couronne vous partez donc à la recherche de cette couronne");
+		Console.WriteLine(" Vous finissez après plsuieurs semaine a retourvez la trace de cet Orc et vous vous retrouvez en face de lui");
 	
 	}
 }
