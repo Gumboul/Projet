@@ -30,7 +30,7 @@ public class Projet
 	}
 }
 
-public class Personnages : Projet
+public class Personnages
 {
     private string lieu;
     private int degats;

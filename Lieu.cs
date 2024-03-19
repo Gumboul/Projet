@@ -1,4 +1,4 @@
-public class Lieu Abstract 
+public class Lieu
 {
     
 }

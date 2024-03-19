@@ -1,4 +1,4 @@
-public class Items : Main
+public class Items
 {
 
 }

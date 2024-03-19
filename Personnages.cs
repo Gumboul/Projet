@@ -1,4 +1,4 @@
-public class Personnages : Main
+public class Personnages
 {
     private string lieu;
     private int degats;
