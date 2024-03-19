@@ -11,6 +11,16 @@ public class Joueurs : Personnages
         get { return nom_joueur; }
         set { nom_joueur = value; }
     }
+	public string Joueurprenom
+    {
+        get { return joueur_prenom; }
+        set { joueur_prenom = value; }
+    }
+	public int Nombrevie
+    {
+        get { return nombre_pv; }
+        set { nombre_pv = value; }
+    }
 
     public static Personnages 
     {
