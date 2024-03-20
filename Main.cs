@@ -20,22 +20,28 @@ public class Projet
 		
 		
 		//Choix de la classe et Création Arme
-		
-		Console.WriteLine("Vueillez choisir entre ces 3 classes : Chevalier, Barbare, Archer");
+		string Choix;
 		string Possede = (".");
-		string Choix = Console.ReadLine();
-		if (Choix == "Barbare") {
+		do
+		{
+			Console.WriteLine("Vueillez choisir entre ces 3 classes : Chevalier, Barbare, Archer");
+			Choix = Console.ReadLine();
+			if (Choix == "Barbare") {
 				instancej.additem(new Armes(40,"Hache"));
 				Possede = ("Hache");
-		}
-		if (Choix == "Chevalier") {
+			}
+			else if (Choix == "Chevalier") {
 				instancej.additem(new Armes(20,"epee"));
 				Possede = ("Epée");
-		}
-		if (Choix == "Archer") {
+			}
+			else if (Choix == "Archer") {
 				instancej.additem(new Armes(15,"Arc"));
-				Possede = ("Arc");
-		}
+				Possede = ("Arc"); }
+			else
+			{
+				Console.WriteLine("Choisissez une classe existante");
+			}
+			}while(Choix!= "Chevalier" || Choix!= "Archer" || Choix!= "Barbare");
 		
 		//Mise en place des dégats
 		
@@ -101,6 +107,28 @@ public class Projet
 			{
 				Console.WriteLine("Grimgor ce prépare à attaquer, que faite vous ? Attaquer - ne rien faire");
 				string Choix2 = Console.ReadLine();
+				Console.WriteLine("Voulez vous voir vos information? entrez Oui ou entrez Non");
+				string Statistique = Console.ReadLine();
+				Console.WriteLine("Il vous reste : ", + pvGrimgor);
+				do{
+					if(Statistique == "Oui")
+					{
+							Console.WriteLine("*********************************************");
+							Console.WriteLine("* Voici votre fiche personnage :            ");
+							Console.WriteLine("* Votre Nom : " + instancej.NomJoueur);
+							Console.WriteLine("* Votre Prénom : " + instancej.Joueurprenom);
+							Console.WriteLine("* Vos point de vie sont : " + instancej.Nombrevie);
+							Console.WriteLine("* Votre classe est : " + Choix);
+							Console.WriteLine("* Votre arme est : " + Possede);
+							Console.WriteLine("* Votre arme fait : " + degats);
+							Console.WriteLine("*********************************************");
+					}
+					if(Statistique == "Non")
+					{
+						Console.WriteLine("Poursuite du combat !");
+					}
+				}while(Statistique != "Oui" || Statistique != "Non");
+				
 				if(Choix2 == "Attaquer")
 				{
 					Console.WriteLine("Vous attaquez");
@@ -122,6 +150,7 @@ public class Projet
 					Console.WriteLine("           ");
 					Console.WriteLine("                                            VICTOIRE c:                                                                   ");
 					Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------");
+					break;
 				}
 				if(Nombrevie == 0)
 				{
@@ -134,6 +163,7 @@ public class Projet
 					Console.WriteLine("           ");
 					Console.WriteLine("                                            Défaite :c                                                                   ");
 					Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------");
+					break;
 				}
 			} 
 				
