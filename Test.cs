@@ -100,7 +100,7 @@ public class Projet
 					{
 						degatsGrim = 50;
 					}
-			while (pvGrimgor == 0 || Nombrevie == 0)
+			while (pvGrimgor != 0 || Nombrevie != 0)
 			{
 				Console.WriteLine("Grimgor ce prépare à attaquer, que faite vous ? Attaquer - ne rien faire");
 				string Choix2 = Console.ReadLine();
