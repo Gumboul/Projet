@@ -26,23 +26,30 @@ public class Projet
 		string Choix;
 		bool verif =false;
 		string Possede = (".");
+		string Protection = (".");
 		do
 		{
 			Console.WriteLine("Vueillez choisir entre ces 3 classes : Chevalier, Barbare, Archer");
 			Choix = Console.ReadLine();
 			if (Choix == "Barbare") {
 				instancej.additem(new Armes(40,"Hache"));
+				instancej.addArmure(new Armures(100, ""));
 				Possede = ("Hache");
+				Protection =("Armure en Bronze");
 				verif =true;
 			}
 			else if (Choix == "Chevalier") {
 				instancej.additem(new Armes(20,"epee"));
+				instancej.addArmure(new Armures(150, ""));
 				Possede = ("Epée");
+				Protection =("Armure en Fer");
 				verif =true;
 			}
 			else if (Choix == "Archer") {
 				instancej.additem(new Armes(15,"Arc"));
+				instancej.addArmure(new Armures(50, ""));
 				Possede = ("Arc"); 
+				Protection =("Armure en Cuir");
 				verif =true;
 			}
 			else
@@ -52,8 +59,23 @@ public class Projet
 			}while(verif==false);
 		verif = false;
 		
-		//Mise en place des dégats
+		//Mise en place de la vie suite aux armures
 		
+		
+		if (Protection == ("Armure en Bronze"))
+		{
+			instancej.setNombrevie(100);
+		}
+		if (Protection == ("Armure en Fer"))
+		{
+			instancej.setNombrevie(150);
+		}
+		if (Protection == ("Armure en Cuir"))
+		{
+			instancej.setNombrevie(50);
+		}
+		
+		//Mise en place des dégats
 		if (Possede == ("Arc"))
 		{
 			degats = 15 ; 
@@ -73,10 +95,12 @@ public class Projet
 		Console.WriteLine("* Voici votre fiche personnage :            ");
 		Console.WriteLine("* Votre Nom : " + instancej.NomJoueur);
 		Console.WriteLine("* Votre Prénom : " + instancej.Joueurprenom);
-		Console.WriteLine("* Vos point de vie sont : " + instancej.Nombrevie);
+		Console.WriteLine("* Vos points de vie initiaux sont : 200");
+		Console.WriteLine("* Vos point de vie avec Armure sont : " + instancej.getNombrevie());
 		Console.WriteLine("* Votre classe est : " + Choix);
 		Console.WriteLine("* Votre arme est : " + Possede);
 		Console.WriteLine("* Votre arme fait : " + degats);
+		Console.WriteLine("* Votre Armure est : " + Protection);
 		Console.WriteLine("*********************************************");
 	//Pour le combats faire un readline ou il entrera attaque, et à chaque tour l'ennemie lui infligera un nombre de dégats définis jusqu'a ce que soit 
 	//il meurt ou que l'ennemie meurt
@@ -90,7 +114,7 @@ public class Projet
 		Console.WriteLine("* Au périle de votre vie vous avez encouru de grand danger, reçu une multitude d'information");
 		Console.WriteLine("* Vous finissez par recevoir l'information qu'un Orc détiendrait cette couronne vous partez donc à la recherche de cette couronne");
 		Console.WriteLine("* Vous finissez après plsuieurs semaine a retourvez la trace de cet Orc et vous vous retrouvez en face de lui, son nom c'est Grimgor Boitenfer");
-		Console.WriteLine("Deux choix s'offre à vous : le Combattre ou Fuir");
+		Console.WriteLine("Deux choix s'offre a vous : le Combattre ou Fuir");
 		string Debutcombat = Console.ReadLine();
 		if (Debutcombat == "Fuir")
 		{
@@ -112,13 +136,13 @@ public class Projet
 					{
 						degatsGrim = 50;
 					}
-			while (pvGrimgor != 0 || Nombrevie != 0)
+			while (instancej.getpvGrimgor() != 0 || instancej.getNombrevie() != 0)
 			{
 				Console.WriteLine("Grimgor ce prépare à attaquer, que faite vous ? Attaquer - ne rien faire");
 				string Choix2 = Console.ReadLine();
 				Console.WriteLine("Voulez vous voir vos information? entrez Oui ou entrez Non");
 				string Statistique = Console.ReadLine();
-				Console.WriteLine("Il vous reste : ", + pvGrimgor);
+				Console.WriteLine("Il reste : ", + instancej.getpvGrimgor(),"A Grimgor");
 				do{
 					if(Statistique == "Oui")
 					{
@@ -126,7 +150,7 @@ public class Projet
 							Console.WriteLine("* Voici votre fiche personnage :            ");
 							Console.WriteLine("* Votre Nom : " + instancej.NomJoueur);
 							Console.WriteLine("* Votre Prénom : " + instancej.Joueurprenom);
-							Console.WriteLine("* Vos point de vie sont : " + instancej.Nombrevie);
+							Console.WriteLine("* Vos point de vie sont : " + instancej.getNombrevie());
 							Console.WriteLine("* Votre classe est : " + Choix);
 							Console.WriteLine("* Votre arme est : " + Possede);
 							Console.WriteLine("* Votre arme fait : " + degats);
@@ -143,14 +167,14 @@ public class Projet
 				if(Choix2 == "Attaquer")
 				{
 					Console.WriteLine("Vous attaquez");
-					pvGrimgor = pvGrimgor - degats;
-					Nombrevie = Nombrevie - degatsGrim;
+					instancej.setpvGrimgor(degats);
+					instancej.diminutionNombrevie(degatsGrim);
 				}
 				if(Choix2 == "ne rien faire")
 				{
-					Nombrevie = Nombrevie - degatsGrim;
+					instancej.diminutionNombrevie(degatsGrim);
 				}
-				if(pvGrimgor == 0)
+				if(instancej.getpvGrimgor() == 0)
 				{
 					Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------");
 					Console.WriteLine("Fin Victorieuse:");
@@ -219,25 +243,59 @@ public class Joueurs : Personnages
         get { return nom_joueur; }
         set { nom_joueur = value; }
     }
+	
 	public string Joueurprenom
     {
         get { return joueur_prenom; }
         set { joueur_prenom = value; }
     }
-	public int Nombrevie
+	
+	public int getNombrevie()
     {
-        get { return nombre_pv; }
-        set { nombre_pv = value; }
+		return this.nombre_pv;
     }
+	
+	public void setNombrevie(int i)
+    {
+		this.nombre_pv = this.nombre_pv + i;
+    }
+	
+	public void diminutionNombrevie(int i)
+    {
+		this.nombre_pv = this.nombre_pv - i;
+    }
+	
+		public int getpvGrimgor()
+    {
+		return this.pvGrimgor;
+    }
+	
+	public void setpvGrimgor(int i)
+    {
+		this.pvGrimgor = this.pvGrimgor + i;
+    }
+	
+	public void diminutionpvGrimgor(int i)
+    {
+		this.pvGrimgor = this.pvGrimgor - i;
+    }
+	
 	public int pvGrimgor
     {
         get { return BossOrc; }
         set { BossOrc = value; }
     }
+	
 	public void additem(Items weapon)
 	{
 	this.items.Add(weapon);
 	}
+	
+	public void addArmure(Items Armures)
+	{
+	this.items.Add(Armures);
+	}
+	
 	public void addGrimgor(Items weapon)
 	{
 	this.Grimgorinventaire.Add(weapon);
@@ -275,5 +333,27 @@ public class ennemies : Personnages
     public ennemies (string lieu2, int degats2, int nombre_pv2, string nom_joueur2, string joueur_prenom2, int BossOrc2) : base(lieu2, degats2, nombre_pv2, nom_joueur2, joueur_prenom2, BossOrc2)
     {
 	
+    }
+}
+///// faire l'héritage de ARmure dans Items -----> rajouter private int armure bronze, int armure fer et int armure cuire
+
+public class Armures : Items
+{
+	private int protection ;
+	private string nom;
+
+    public Armures(int protection2, string nom2, int armureBronze = 100, int armureFer = 150, int armureCuir = 50)
+    {
+
+		this.protection = protection2;
+		this.nom = nom2;
+    }
+}
+
+public class Potions : Items
+{
+    public Potions()
+    {
+        // Ajoutez ici le code spécifique aux potions
     }
 }
