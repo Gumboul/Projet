@@ -24,6 +24,7 @@ public class Projet
 		
 		//Choix de la classe et Création Arme
 		string Choix;
+		bool verif =false;
 		string Possede = (".");
 		do
 		{
@@ -32,19 +33,24 @@ public class Projet
 			if (Choix == "Barbare") {
 				instancej.additem(new Armes(40,"Hache"));
 				Possede = ("Hache");
+				verif =true;
 			}
 			else if (Choix == "Chevalier") {
 				instancej.additem(new Armes(20,"epee"));
 				Possede = ("Epée");
+				verif =true;
 			}
 			else if (Choix == "Archer") {
 				instancej.additem(new Armes(15,"Arc"));
-				Possede = ("Arc"); }
+				Possede = ("Arc"); 
+				verif =true;
+			}
 			else
 			{
 				Console.WriteLine("Choisissez une classe existante");
 			}
-			}while(Choix!= "Chevalier" || Choix!= "Archer" || Choix!= "Barbare");
+			}while(verif==false);
+		verif = false;
 		
 		//Mise en place des dégats
 		
@@ -125,12 +131,14 @@ public class Projet
 							Console.WriteLine("* Votre arme est : " + Possede);
 							Console.WriteLine("* Votre arme fait : " + degats);
 							Console.WriteLine("*********************************************");
+							verif = true;
 					}
 					if(Statistique == "Non")
 					{
 						Console.WriteLine("Poursuite du combat !");
+						verif = true;
 					}
-				}while(Statistique != "Oui" || Statistique != "Non");
+				}while(verif == false);
 				
 				if(Choix2 == "Attaquer")
 				{

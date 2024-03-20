@@ -1,4 +1,4 @@
-public class Armure : Items //Creation classe Armure
+public class Armure  //Creation classe Armure
 {
     private int protection ;
 
@@ -14,73 +14,67 @@ public class Armure : Items //Creation classe Armure
     {
         return this.protection;
     }
-
-    public Armure(int ajout2)
-    {
-        this.ajout = ajout2;
-    }
-    public void setValeur(int ajout3)
-    {
-        this.ajout = ajout3;
-    }
-    public double getValeur()
-    {
-        return this.ajout;
-    }
-    
 }
 
-public class Casque:Armure     //Creation classe Casque
+///// faire l'héritage de ARmure dans Items -----> rajouter private int armure bronze, int armure fer et int armure cuire
+
+public class Armure : Items       //Création Armes hérite de Items
 {
-    private Casque():base(5)
+    private int armure_bronze;
+    private int armure_fer;
+    private int amure_cuire
+
+    public Armure(int armure_bronze, int armure_fer, int armure_cuire)
     {
-            Casque.augmenter(ajout)
-            {
-                Personnages.nombre_pv = Personnages.nombre_pv + Casque;
-            }
+        this.armure_bronze = armure_bronze;
+        this.armure_fer = armure_fer;
+        this.armure_cuire = armure_cuire;
     }
+
+    public int getArmure_bronze()
+    {
+        return this.armure_bronze
+    }
+
+    public void setArmure_bronze(5)
+    {
+       
+    } 
+
+    public int getArmure_fer()
+    {
+        return this.armure_fer
+    }
+
+    public void setArmure_fer(10)
+    {
+        
+    }
+
+    public int getArmure_cuire()
+    {
+        return this.armure_cuire
+    }
+
+    public void setArmure_cuire(15)
+    {
+        
+    }
+
 }
 
-public class Epaulettes:Armure     //Creation classe Epaulettes
+public class Armure : Items    //Création Armure hérite de Items
 {
-    private Epaulettes():base(5)
+    public Armure():
     {
-            Epaulettes.augmenter(ajout)
-            {
-                Personnages.nombre_pv = Personnages.nombre_pv + Epaulettes;
-            }
-    }
-}
 
-public class Jambieres:Armure     //Creation classe Jambieres
-{
-    private Jambieres():base(10)
-    {
-            Jambieres.augmenter(ajout)
-            {
-                Personnages.nombre_pv = Personnages.nombre_pv + Jambieres;
-            }
-    }
-}
-
-public class Bottes:Armure     //Creation classe Bottes
-{
-    private Bottes():base(5)
-    {
-    Bottes.augmenter(ajout)
-        {
-            Personnages.nombre_pv = Personnages.nombre_pv + Bottes;
-        }
     }
 }
 
-public class Gantelet:Armure     //Creation classe Bottes
+public class Potions : Items    //Création potions hérite de Items
 {
-    private Gantelet():base(5)
+    public Potions()
     {
-            Gantelet.augmenter(ajout)
-            {
-                Personnages.nombre_pv = Personnages.nombre_pv + Gantelet;
-            }
+
     }
 }
