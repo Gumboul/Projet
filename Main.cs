@@ -18,6 +18,7 @@ public class Projet
         int degats = 0;
         int degatsGrim = 0;
         Joueurs instancej = new Joueurs("lieu", 0, Nombrevie, Joueursnom, Joueurprenom, pvGrimgor);
+		ennemies instancee = new ennemies("lieu", 0, Nombrevie, Joueursnom, Joueurprenom, pvGrimgor);
         Console.WriteLine("Vous avez choisi comme nom : " + instancej.NomJoueur);
         Console.WriteLine("Vous avez choisi comme prénom : " + instancej.Joueurprenom);
 
@@ -129,15 +130,15 @@ public class Projet
             Console.WriteLine("Vous avez donc décidé de vous battre contre Grimgor !");
             Console.WriteLine("Grimgor : Cé moua lé Boss ! Cé moua quié la couronne !");
             Console.WriteLine("----------------------------------------------------------");
-            instancej.addGrimgor(new Armes(50, "Hache de Grimgor"));
+            instancee.addGrimgor(new Armes(50, "Hache de Grimgor"));
             PossedeGrim = ("Hache de Grimgor");
             if (PossedeGrim == ("Hache de Grimgor"))
             {
                 degatsGrim = 50;
             }
-            while (instancej.getpvGrimgor() != 0 ||instancej.getpvGrimgor() !< 0 || instancej.getNombrevie() != 0 || instancej.getNombrevie() !< 0)
+            while (instancee.getpvGrimgor() != 0 ||instancee.getpvGrimgor() !< 0 || instancej.getNombrevie() != 0 || instancej.getNombrevie() !< 0)
 {
-    Console.WriteLine("Il reste : " + instancej.getpvGrimgor() + " à Grimgor");
+    Console.WriteLine("Il reste : " + instancee.getpvGrimgor() + " à Grimgor");
     Console.WriteLine("Grimgor se prépare à attaquer, que faites-vous ? Attaquer - ne rien faire");
 	string Choix2 = Console.ReadLine();
     Console.WriteLine("Voulez-vous voir vos informations ? Entrez Oui ou entrez Non");
@@ -164,7 +165,7 @@ public class Projet
     {
         Console.WriteLine("Vous attaquez");
         // Perte de pv Grimgor
-        instancej.diminutionpvGrimgor(degats);
+        instancee.diminutionpvGrimgor(degats);
         // Perte PV personnages
         instancej.diminutionNombrevie(degatsGrim);
     }
@@ -173,7 +174,7 @@ public class Projet
         instancej.diminutionNombrevie(degatsGrim);
     }
 
-    if (instancej.getpvGrimgor() == 0 ||instancej.getpvGrimgor() !< 0)
+    if (instancee.getpvGrimgor() == 0 ||instancee.getpvGrimgor() !< 0)
     {
         Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------");
         Console.WriteLine("Fin Victorieuse:");
