@@ -17,7 +17,7 @@ public class Projet
         int pvGrimgor = 300;
         int degats = 0;
         int degatsGrim = 0;
-        Joueurs instancej = new Joueurs("lieu", 0, Nombrevie, Joueursnom, Joueurprenom, pvGrimgor);
+        Joueurs instancej = new Joueurs("lieu", 0, Nombrevie, Joueursnom, Joueurprenom, pvGrimgor);//Création du joueur
         Console.WriteLine("Vous avez choisi comme nom : " + instancej.NomJoueur);
         Console.WriteLine("Vous avez choisi comme prénom : " + instancej.Joueurprenom);
 
@@ -48,8 +48,8 @@ public class Projet
             }
             else if (Choix == "Archer")
             {
-                instancej.additem(new Armes(15, "Arc"));
-                instancej.addArmure(new Armures(50, "Armure en Cuir"));
+                instancej.additem(new Armes(15, "Arc")); //Création d'une arme et ajout dans l'inventaire du joueur
+                instancej.addArmure(new Armures(50, "Armure en Cuir")); //Création d'une armure et ajout dans l'inventaire du joueur
                 Possede = ("Arc");
                 Protection = ("Armure en Cuir");
                 verif = true;
@@ -65,7 +65,7 @@ public class Projet
 
         if (Protection == ("Armure en Bronze"))
         {
-            instancej.setNombrevie(100);
+            instancej.setNombrevie(100); //Ajout de la valeur de l'armure au nombre de vie du joueur
         }
         if (Protection == ("Armure en Fer"))
         {
@@ -79,7 +79,7 @@ public class Projet
         // Mise en place des dégats
         if (Possede == ("Arc"))
         {
-            degats = 15;
+            degats = 15; //Définition du nombre de dégat des armes du joueurs
         }
         if (Possede == ("Epée"))
         {
@@ -137,10 +137,10 @@ public class Projet
             }
             while (instancej.getpvGrimgor() != 0 ||instancej.getpvGrimgor() !< 0 || instancej.getNombrevie() != 0 || instancej.getNombrevie() !< 0)
 {
-    Console.WriteLine("Il reste : " + instancej.getpvGrimgor() + " à Grimgor");
+    Console.WriteLine("Il reste : " + instancej.getpvGrimgor() + "point de vie à Grimgor");
     Console.WriteLine("Grimgor se prépare à attaquer, que faites-vous ? Attaquer - ne rien faire");
 	string Choix2 = Console.ReadLine();
-    Console.WriteLine("Voulez-vous voir vos informations ? Entrez Oui ou entrez Non");
+    Console.WriteLine("Voulez-vous voir vos informations ? Entrez Oui ou entrez Non");      
     string Statistique = Console.ReadLine();
 
     if (Statistique == "Oui")
@@ -233,59 +233,59 @@ public class Joueurs : Personnages
     {
     }
 
-    public string NomJoueur
+    public string NomJoueur //Methode pour définir le nom du joueur
     {
         get { return nom_joueur; }
         set { nom_joueur = value; }
     }
 
-    public string Joueurprenom
+    public string Joueurprenom //Methode pour définir le prénom du joueur
     {
         get { return joueur_prenom; }
         set { joueur_prenom = value; }
     }
 
-    public int getNombrevie()
+    public int getNombrevie() //Methode pour obtenir le nombre de vie du joueur
     {
         return this.nombre_pv;
     }
 
-    public void setNombrevie(int i)
+    public void setNombrevie(int i) //Methode pour modifier le nombre de vie du joueur ici l'augmenter
     {
         this.nombre_pv = this.nombre_pv + i;
     }
 
-    public void diminutionNombrevie(int i)
+    public void diminutionNombrevie(int i) //Methode pour modifier le nombre de vie du joueur ici la diminuer
     {
         this.nombre_pv = this.nombre_pv - i;
     }
 
-    public int getpvGrimgor()
+    public int getpvGrimgor() //Methode pour obtenir le nombre de vie de Grimgor
     {
         return this.BossOrc;
     }
 
-    public void setpvGrimgor(int i)
+    public void setpvGrimgor(int i) //Methode pour modifier le nombre de vie de Grimgor ici l'augmenter
     {
         this.BossOrc = this.BossOrc + i;
     }
 
-    public void diminutionpvGrimgor(int i)
+    public void diminutionpvGrimgor(int i) //Methode pour modifier le nombre de vie de Grimgor ici la diminuer
     {
         this.BossOrc = this.BossOrc - i;
     }
 
-    public void additem(Items weapon)
+    public void additem(Items weapon) //Methode pour ajouter un items à l'inventaire du joueur
     {
         this.items.Add(weapon);
     }
 
-    public void addArmure(Items Armures)
+    public void addArmure(Items Armures) //Methode pour ajouter un items à l'inventaire du joueur
     {
         this.items.Add(Armures);
     }
 
-    public void addGrimgor(Items weapon)
+    public void addGrimgor(Items weapon) //Methode pour ajouter un items à l'inventaire de Grimgor
     {
         this.Grimgorinventaire.Add(weapon);
     }
